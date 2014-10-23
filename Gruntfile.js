@@ -458,7 +458,8 @@ module.exports = function( grunt ) {
     function buildBrowser( sources ) {
         var fs = require("fs");
         var browserify = require("browserify");
-        var b = browserify("./js/main/bluebird.js");
+        var b = browserify({ debug: true });
+        b.add("./js/main/bluebird.js");
         var dest = "./js/browser/bluebird.js";
 
         var header = getBrowserBuildHeader( sources );
